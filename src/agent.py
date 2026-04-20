@@ -9,4 +9,4 @@ agent = Agent(
     markdown=True
 )
 
-agent.print_response("Share a 2 sentence summary of the book 'The Three-Body Problem'")
+agent.print_response("Who is the god of the sea in the Chinese mythology?")
