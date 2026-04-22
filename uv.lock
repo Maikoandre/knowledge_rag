@@ -865,6 +865,7 @@ dependencies = [
     { name = "chromadb" },
     { name = "huggingface-hub" },
     { name = "openai" },
+    { name = "python-dotenv" },
     { name = "sentence-transformers" },
 ]
 
@@ -874,6 +875,7 @@ requires-dist = [
     { name = "chromadb" },
     { name = "huggingface-hub" },
     { name = "openai", specifier = ">=2.32.0" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "sentence-transformers" },
 ]
 

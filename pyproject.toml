@@ -10,4 +10,5 @@ dependencies = [
     "sentence-transformers",
     "huggingface-hub",
     "chromadb",
+    "python-dotenv>=1.2.2",
 ]
