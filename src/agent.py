@@ -1,8 +1,11 @@
 from agno.agent import Agent
-from agno.models.llama_cpp import LlamaCpp
+from agno.models.openrouter import OpenRouter
 from agno.knowledge import Knowledge
 from agno.knowledge.embedder.sentence_transformer import SentenceTransformerEmbedder
 from agno.vectordb.chroma import ChromaDb, SearchType
+from dotenv import load_dotenv
+
+load_dotenv()
 
 knowledge = Knowledge(
     vector_db=ChromaDb(
@@ -17,9 +20,8 @@ knowledge = Knowledge(
 knowledge.insert(path='docs/', skip_if_exists=True)
 
 agent = Agent(
-    model=LlamaCpp(
-        id='ggml-org/gemma-3-1b-it-GGUF',
-        base_url="http://localhost:8080/v1"
+    model=OpenRouter(
+        id='openai/gpt-oss-120b:free',
     ),
     instructions = [
         "You are a strictly constrained assistant specialized in 'The Myriad Veil Cosmos'.",
