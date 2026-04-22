@@ -41,4 +41,4 @@ agent = Agent(
     knowledge=knowledge
 )
 
-agent.print_response("What is the Eight Desolates?")
+agent.print_response("What is the Nine Heavens?")
