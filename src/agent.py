@@ -1,4 +1,5 @@
 from agno.agent import Agent
+from agno.os import AgentOS
 from agno.models.openrouter import OpenRouter
 from agno.knowledge import Knowledge
 from agno.knowledge.embedder.sentence_transformer import SentenceTransformerEmbedder
@@ -41,4 +42,5 @@ agent = Agent(
     knowledge=knowledge
 )
 
-agent.print_response("What is the Nine Heavens?")
+agent_os = AgentOS(agents=[agent], tracing=True)
+app = agent_os.get_app()

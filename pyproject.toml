@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "agno>=2.5.17",
+    "agno[os]>=2.5.17",
     "openai>=2.32.0",
     "sentence-transformers",
     "huggingface-hub",
