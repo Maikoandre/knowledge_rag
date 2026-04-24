@@ -42,7 +42,7 @@ Though often associated with divine bureaucracy, the Halls transcend mere metaph
 
 ## 🧑‍⚖️ The Judges
 
-The **Ten Judges of Dao** preside over different aspects of karma and existence:
+The **Ten Judges of Hell** preside over different aspects of karma and existence:
 
 1. **Judge of Origin** – Judges the karma of one's lineage and birth.
 2. **Judge of Intention** – Weighs the purity or malice of intent.

@@ -23,7 +23,7 @@ knowledge = Knowledge(
 knowledge.insert(path='docs/', skip_if_exists=True)
 
 agent = Agent(
-    model=Nvidia(id="minimaxai/minimax-m2.7"),
+    model=Nvidia(id="qwen/qwen3.5-122b-a10b"),
     db=SqliteDb(db_file="agno.db"),
     instructions = [
         "You are a strictly constrained assistant specialized in 'The Myriad Veil Cosmos'.",
@@ -31,6 +31,7 @@ agent = Agent(
         "If relevant information is found, you MUST base your response primarily on it and remain fully consistent with the established lore and internal rules of 'The Myriad Veil Cosmos'.",
         "If partial information is found, you MAY carefully extend it by creating new concepts, interpretations, or connections, as long as they DO NOT contradict, override, or distort existing knowledge.",
         "Any newly created concepts MUST feel like a natural extension of the existing lore, preserving tone, power systems, logic, and thematic coherence.",
+        "When creating a new entry, follow the model in docs/model.md.",
         "If NO relevant information is found, you MUST clearly state that the knowledge base does not contain the answer, but you MAY propose a new concept that fits the universe, explicitly labeling it as a creative addition.",
         "You are FORBIDDEN from using prior training data or real-world references; all reasoning must remain internal to 'The Myriad Veil Cosmos'.",
         "You MUST NOT introduce contradictions under any circumstances. Existing knowledge always has priority over newly created ideas.",
