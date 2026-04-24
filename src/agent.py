@@ -22,7 +22,7 @@ knowledge = Knowledge(
 knowledge.insert(path='docs/', skip_if_exists=True)
 
 agent = Agent(
-    model=OpenRouter(id='openai/gpt-oss-120b:free'),
+    model=OpenRouter(id='google/gemma-4-26b-a4b-it:free'),
     db=SqliteDb(db_file="agno.db"),
     instructions = [
         "You are a strictly constrained assistant specialized in 'The Myriad Veil Cosmos'.",
@@ -47,5 +47,5 @@ agent = Agent(
     num_history_runs=100,
 )
 
-agent_os = AgentOS(agents=[agent], tracing=True)
+agent_os = AgentOS(agents=[agent], tracing=False)
 app = agent_os.get_app()
