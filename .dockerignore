@@ -1,0 +1,15 @@
+.git
+.github
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.local
+.python-version
+data/
+uv.lock
+pyproject.toml
+Dockerfile
+.dockerignore
