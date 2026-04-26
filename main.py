@@ -1,6 +1,5 @@
 from src.core.agent import agent
+from agno.os import AgentOS
 
-while True:
-    user_input = input("You: ")
-    response = agent.run(user_input)
-    print(f"Agent: {response}")
+agent_os = AgentOS(agents=[agent], tracing=True)
+app = agent_os.get_app()
