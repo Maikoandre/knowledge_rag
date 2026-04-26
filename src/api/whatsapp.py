@@ -1,19 +1,13 @@
 from fastapi import FastAPI, Request, WebSocket
-from agno.models.nvidia import Nvidia
-from agno.agent import Agent
 import requests
 import os
+from src.core.agent import agent
 
 """
 $ uvicorn src.api.whatsapp:app --reload --port 8000
 """
 
 app = FastAPI()
-
-agent = Agent(
-    model=Nvidia(id="qwen/qwen3.5-122b-a10b"),
-    instructions=["Você é um assistente prestativo via WhatsApp."]
-)
 
 EVOLUTION_URL = "https://evolution.imepag.com.br"
 INSTANCE_NAME = "agno"
