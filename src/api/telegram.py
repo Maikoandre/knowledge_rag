@@ -43,8 +43,6 @@ def process_telegram_message(chat_id: int, text: str):
     print(f"DEBUG: Agent answer length: {len(agent_answer)}")
 
     send_url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
-    
-    # Split into chunks of 4000 chars to fit Telegram API limits
     chunk_size = 1000
     for i in range(0, len(agent_answer), chunk_size):
         chunk = agent_answer[i:i + chunk_size]

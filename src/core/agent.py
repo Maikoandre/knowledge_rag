@@ -10,9 +10,6 @@ import os
 
 load_dotenv()
 
-# Ensure data directory exists
-os.makedirs("data", exist_ok=True)
-
 knowledge = Knowledge(
     vector_db=ChromaDb(
         collection="docs",
