@@ -42,7 +42,7 @@ async def websocket_endpoint(websocket: WebSocket):
 def process_telegram_message(chat_id: int, text: str):
     logger.info("Running agent in background...")
     response = agent.run(text)
-    agent_answer = response.content
+    agent_answer = response.content[:250] if response.content else ""
     if not agent_answer:
         logger.error("No content from agent.")
         return
@@ -50,17 +50,21 @@ def process_telegram_message(chat_id: int, text: str):
         
     logger.debug(f"Agent answer length: {len(agent_answer)}")
 
-
     send_url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
-    payload = {"chat_id": chat_id, "text": agent_answer}
-    try:
-        resp = requests.post(send_url, json=payload, timeout=10)
-        if not resp.ok:
-            logger.error(f"Telegram API failed: {resp.status_code} - {resp.text}")
-        else:
-            logger.debug(f"Telegram API response: {resp.status_code} - {resp.text}")
-    except Exception as e:
-        logger.error(f"Telegram API exception: {e}")
+    
+    # Telegram max length is 4096
+    chunks = [agent_answer[i:i+4096] for i in range(0, len(agent_answer), 4096)]
+    
+    for chunk in chunks:
+        payload = {"chat_id": chat_id, "text": chunk}
+        try:
+            resp = requests.post(send_url, json=payload, timeout=10)
+            if not resp.ok:
+                logger.error(f"Telegram API failed: {resp.status_code} - {resp.text}")
+            else:
+                logger.debug(f"Telegram API response: {resp.status_code} - {resp.text}")
+        except Exception as e:
+            logger.error(f"Telegram API exception: {e}")
 
 
 @app.post("/webhook")

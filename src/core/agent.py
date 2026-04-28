@@ -21,7 +21,7 @@ knowledge = Knowledge(
     )
 )
 
-knowledge.insert(path='docs/', skip_if_exists=True)
+# knowledge.insert(path='docs/', skip_if_exists=True)
 
 agent = Agent(
     name="central_agent",
@@ -41,10 +41,10 @@ agent = Agent(
         "If multiple pieces of information are retrieved, you MUST reconcile them into a coherent and contradiction-free explanation.",
         "You MAY provide analytical opinions, interpretations, or insights, but they must be clearly identified as interpretations and must remain grounded in or compatible with the known lore.",
         "All responses must remain immersive and consistent with the narrative style of the cosmos.",
-        "Provide a structured, immersive response. Keep it concise to reduce response time.",
+        "Provide a structured, immersive response. Keep it very concise (under 250 characters).",
         "Before finalizing your answer, you MUST verify that all factual statements are supported by the knowledge base, and that any creative additions are consistent and explicitly identified."
     ],
-    markdown=True,
+    markdown=False,
     search_knowledge=True,
     knowledge=knowledge,
     add_datetime_to_context=True,
