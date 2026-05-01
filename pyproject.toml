@@ -18,3 +18,8 @@ dependencies = [
     "uvicorn>=0.44.0",
     "requests>=2.33.1",
 ]
+
+[tool.pyright]
+executionEnvironments = [
+  { root = "." }
+]
